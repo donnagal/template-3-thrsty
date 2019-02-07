@@ -1,0 +1,86 @@
+.bg-g-blue {
+  background-color: #1fc8db;
+  background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+.bg-g-purple  {
+  background-color: #9e21ff;
+  background-image: linear-gradient(141deg, #ed21ff 0%, #9e21ff 51%, #9e21ff 75%);
+}
+
+.bg-img-parallax {
+    background-image: url('https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80');
+    height: 40vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .bg-grayscale {
+    @include grayscale;
+  }
+
+.bg-video {
+    position: relative;
+    background-color: black;
+    height: 90vh;
+    width: 100%;
+    overflow: hidden;
+    video, iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: 0;
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      z-index: 1;
+    }
+  }
+  @media (pointer: coarse) and (hover: none) {
+    .bg-video {
+      background: url('https://images.unsplash.com/photo-1520034475321-cbe63696469a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80') black no-repeat center top scroll;
+    }
+    .bg-video video {
+      display: none;
+    }
+  }
+
+
+.overlay {
+  &:after { 
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background:rgba(0, 0, 0, 0.32);
+    transition: all 1s ease;
+    animation-delay: 3s;
+    z-index: 0;
+  }
+  &.overlay-hover:hover {
+    cursor: pointer;
+    &:after { 
+      content: '';
+      background:rgba(0, 0, 0, 0.62);
+      transition: all .5s ease;
+    }
+  }
+}
+
+
